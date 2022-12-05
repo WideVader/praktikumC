@@ -2,7 +2,7 @@
 
 //declaration of function
 int get_user_input();
-int count(int input);
+void count(int input);
 
 int main(){
     //declaring variable
