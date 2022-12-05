@@ -17,7 +17,7 @@ int main(){
     scanf("%i", &drugo);
 
     //calling function max to check which is bigger
-    int bigger = max(prvo,drugo)
+    int bigger = max(prvo,drugo);
     printf("Bigger: %i \n", bigger);
 
     //checking which number is larger old
@@ -30,7 +30,7 @@ int main(){
 
 //initialization of function
 int max(int num1, int num2){
-    if(num1 > drugo){
+    if(num1 > num2){
         return num1;
     } else{
         return num2;
