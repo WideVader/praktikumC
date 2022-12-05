@@ -4,7 +4,7 @@ int main(){
     //Array with added values 1,2,3,4,5
     //int array[] = {1,2,3,4,5};
 
-    //Array with set size
+    //Array with set size of 5
     int array[5];
 
     //Adding value to elements in the array

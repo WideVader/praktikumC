@@ -5,7 +5,7 @@ int get_user_input();
 void count(int input);
 
 int main(){
-    //declaring variable
+    //declaring variable input
     int input = get_user_input();
     //for loop 4 times
     for (int i = 0; i<4;i++){
