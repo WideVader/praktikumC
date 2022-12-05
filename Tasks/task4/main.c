@@ -1,16 +1,37 @@
 #include <stdio.h>
-#include <stdbool.h>
 
-int main() {
-    int a;
-    scanf("%i",&a);
-    if(a>0){
-        printf(">0 za stevilo %i\n", a);
+//declaration of function
+int get_user_input();
+void to_kmh(int number);
+void to_mps(int number);
+
+int main(){
+    printf("Pick direction of change: \n");
+    printf("1) kmh -> mps \n");
+    printf("2) mps -> kmh \n");
+    int direction = get_user_input();
+    int number = get_user_input();
+    if(direction==1){
+        to_mps(number);
+    }else{
+        to_kmh(number);
     }
-    else if(a<0){
-        printf("<0 za stevilo %i\n", a);
-    }
-    else if(a==0){
-        printf("=0 za stevilo %i\n", a);
-    }
+}
+
+void to_kmh(int number){
+    float b = (float)number * 3.6f;
+    printf("Kmh = %f \n", b);
+}
+void to_mps(int number){
+    float b = (float)number / 3.6f;
+    printf("Kmh = %f \n", b);
+}
+
+int get_user_input(){
+    //declaring variable
+    int input;
+    printf("Enter number: ");
+    scanf("%i", &input);
+    //returning input value
+    return input;
 }
