@@ -1,21 +1,23 @@
 #include <stdio.h>
 
 int main(){
-    //Array with added values 1,2,3,4,5
-    //int array[] = {1,2,3,4,5};
+    //Array with added values 1,2,3,4,5,6,7,8,9
+    int array[] = {1,2,3,4,5,6,7,8,9};
 
-    //Array with set size
-    int array[5];
+    //Built in sizeof gets the size of array in memory length
+    int size_of_numbers = sizeof(array);
+    printf("Size of array in memory: %i\n", size_of_numbers);
 
-    //Adding value to elements in the array
-    array[0] = 1;
-    array[1] = 2;
-    array[2] = 3;
-    array[3] = 4;
-    array[4] = 5;
+    //Built in sizeof gets the size of an element in memory length
+    int size_of_element = sizeof(array[0]);
+    printf("Size of element: %i\n", size_of_element);
+
+    //Divide the memory size of the array with size of one lement to get size of array
+    int length_of_numbers = size_of_numbers / size_of_element;
+    printf("Size of array: %i\n", length_of_numbers);
 
     //Printing out all array values
-    for(int i = 0; i<5;i++){
-        printf("Number on index %i: %i\n", i, array[i]);
+    for(int i = 0; i< length_of_numbers; i++){
+        printf("Array value at index %i: %i\n", i, array[i]);
     }
 }
