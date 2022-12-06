@@ -10,4 +10,4 @@ Collection of programms and assigments for subject racunarski praktikum at FAMNI
 
 ## Contact
 
-For any questions about this repository or help with this class you can contact me at [my mail](mailto:realthiccvader@gmail.com)
+For any questions about this repository or help with this class you can contact me at [my e-mail](mailto:realthiccvader@gmail.com?subject="Praktikum C github")
