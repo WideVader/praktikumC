@@ -4,9 +4,9 @@ Collection of programms and assigments for subject racunarski praktikum at FAMNI
 
 ## Structure
 
-| Tasks | Assignment | Lessons |
+| Tasks | Assignments | Lessons |
 | --- | --- | --- |
-| Contains all tasks collected so far at classes | Contains all assignment collected so far | Contains all lessons collected so far at classes |
+| Contains all tasks collected so far at classes | Contains all assignments collected so far | Contains all lessons collected so far at classes |
 
 ## Contact
 
