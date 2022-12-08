@@ -15,7 +15,7 @@ int main(){
     }
 }
 
-//count function with user inout
+//count function with user input
 void count(int input){
     //for loop that goes from 1 to the number user inputed
     for (int j = 1; j<=input;j++){
