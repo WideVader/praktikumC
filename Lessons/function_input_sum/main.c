@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//declaration of function
 int get_user_input();
 
 int main(){
@@ -15,6 +16,7 @@ int main(){
 
 }
 
+//initialization of function
 int get_user_input(){
     //declaring variable
     int input;
