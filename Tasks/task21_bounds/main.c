@@ -1,19 +1,25 @@
 #include <stdio.h>
 
 //Declaration of function
-void bounds(int array[], int length, int* a, int*b);
+void bounds(int array[], int length, int *a, int *b);
 
-int main(){
+int main()
+{
     //Declaring variables array with 7 elements, array_length with length of array, empty a and b variables
-    int array[] = {-120,2,3,4,5,6,75};
-    int array_length = 7;
+    int array[] = {1, 10, -120, 2, 3, 4, 5, 6, 42, 75};
+    int array_length = 10;
+
+    //Get array length automatically
+    // int array_length = sizeof(array)/sizeof(array[0]);
+
     int a;
     int b;
 
     //Calling function bounds
-    bounds(array,array_length,&a,&b);
-    printf("min: %i     \t max: %i\n", a,b);
+    bounds(array, array_length, &a, &b);
+    printf("min: %i     \t max: %i\n", a, b);
 }
+
 
 //Initialization of function
 void bounds(int array[], int length, int* a, int*b){
@@ -37,4 +43,3 @@ void bounds(int array[], int length, int* a, int*b){
     *a = min;
     *b = max;
 }
-
