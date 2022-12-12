@@ -18,7 +18,7 @@ int main()
 
     double normalised[array_length];
     //Calling function bounds
-    normalise(array, normalised, array_length, min, max);
+    normalise(array, normalised, array_length, -120, 75);
     for (int i = 0; i < array_length; i++)
     {
         printf("%lf ", normalised[i]);
