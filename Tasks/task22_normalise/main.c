@@ -17,29 +17,36 @@ int main()
     int a;
     int b;
 
+    //Setting a normalised array with length of array_length
     double normalised[array_length];
+
     //Calling functions
     bounds(array,array_length,&a,&b);
     normalise(array, normalised, array_length, a, b);
+
+    //Printing all elements of array normalised
     for (int i = 0; i < array_length; i++)
     {
         printf("%lf ", normalised[i]);
     }
     printf("\n");
-    // printf("min: %i     \t max: %i\n", a, b);
 }
 
-
+//Initialization of function
 void normalise(int nums[], double norm[], int length, int min, int max){
+    //Checking if minimal value is 0
     if(min<0){
         for (int i = 0; i < length; i++)
         {
+            //Adding minimal value *(-1) to all elements of array nums
             nums[i] += -min;
         }
+        //Adding minimal value *(-1) to max variable
         max += -min;
     }
     for (int j = 0; j < length; j++)
     {
+        //Dividing every array nums element with max value
         norm[j] = (double) nums[j] / (double) max;
     }
 }
