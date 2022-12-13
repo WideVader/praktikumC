@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-//Declaration of function
+//Declaration of functions
+void bounds(int array[], int length, int *a, int *b);
 void normalise(int nums[], double norm[], int length, int min, int max);
 
 int main()
@@ -17,8 +18,9 @@ int main()
     int b;
 
     double normalised[array_length];
-    //Calling function bounds
-    normalise(array, normalised, array_length, -120, 75);
+    //Calling functions
+    bounds(array,array_length,&a,&b);
+    normalise(array, normalised, array_length, a, b);
     for (int i = 0; i < array_length; i++)
     {
         printf("%lf ", normalised[i]);
@@ -40,4 +42,28 @@ void normalise(int nums[], double norm[], int length, int min, int max){
     {
         norm[j] = (double) nums[j] / (double) max;
     }
+}
+
+
+//Initialization of function
+void bounds(int array[], int length, int* a, int*b){
+
+    //Setting value for variables min and max to be first element of the array
+    int min = array[0];
+    int max = array[0];
+
+    //Going through the array by its length
+    for (int i = 0; i < length; i++)
+    {
+        //Cheking for minimum and maximum value and setting them in variables
+        if(array[i]<min){
+            min = array[i];
+        }
+        if(array[i]>max){
+            max = array[i];
+        }
+    }
+    //Setting min and max values in pointers a and b
+    *a = min;
+    *b = max;
 }
