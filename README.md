@@ -1,6 +1,6 @@
 # PRAKTIKUM C
 
-Collection of programms and assigments for subject racunarski praktikum at FAMNIT University
+Collection of lessons, tasks and assigments for subject racunarski praktikum at FAMNIT, University of Primorska
 
 ## Structure
 
