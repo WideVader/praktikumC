@@ -17,6 +17,7 @@ void print_tasks(char tasks[][MAX_STRING_LENGTH], int* size);
 void add_task(char tasks[][MAX_STRING_LENGTH], int* size, char task[]);
 void main_menu(char tasks[][MAX_STRING_LENGTH], int* size);
 void remove_task(char tasks[][MAX_STRING_LENGTH], int* size, int index);
+void save_tasks(char tasks[][MAX_STRING_LENGTH], int* size);
 
 //argc is argument counter, it starts from 1. first one is the calling of the file
 //argv is a list containing all string arguments
@@ -42,13 +43,38 @@ int main(int argc, char* argv[]){
 //Initialization of functions
 void load_tasks(char tasks[][MAX_STRING_LENGTH], int* size){
 
-    //The  strcpy()  function copies the string pointed to by src, including the terminating null byte ('\0'), to the buffer pointed to by dest.
-    strcpy(tasks[0], "Learn C\n");
-    strcpy(tasks[1], "Learn Git\n");
-    strcpy(tasks[2], "Do homework\n");
+    /* DEPRICATED
+        //The  strcpy()  function copies the string pointed to by src, including the terminating null byte ('\0'), to the buffer pointed to by dest.
+        strcpy(tasks[0], "Learn C\n");
+        strcpy(tasks[1], "Learn Git\n");
+        strcpy(tasks[2], "Do homework\n");
 
-    //Chaning size to 3 as 3 elements were added
-    *size = 3;
+        //Chaning size to 3 as 3 elements were added
+        *size = 3;
+    */
+
+    //Open file
+    FILE* file = fopen("tasks.txt", "r");
+    
+    //Check if file is opened successfully(sucecsufl...succsess...susecss/Internal joke)
+    if(file == NULL){
+        printf("ERROR: Can't open file for writing!\n");
+        return;
+    }
+
+
+    //Read from file (DO MAGIC /Internal joke)
+    //Prepare line buffer
+    char line[MAX_STRING_LENGTH];
+    //Instead of stdin(standard input (terminal)) we use file as source
+    while (fgets(line, sizeof(line), file) != NULL) {
+        strcpy(tasks[*size], line);
+        //The better way /Internal joke
+        (*size)++;
+    }
+
+    //Close file
+    fclose(file);
 }
 
 void print_tasks(char tasks[][MAX_STRING_LENGTH], int* size){
@@ -89,7 +115,7 @@ void main_menu(char tasks[][MAX_STRING_LENGTH], int* size){
     printf("Or press [enter] to exit the program.\n");
 
     char line[MAX_STRING_LENGTH];
-    //stdin standrad input
+    //stdin standrad input (terminal)
     fgets(line, sizeof(line), stdin);
 
     int selected_index = 0;
@@ -97,6 +123,8 @@ void main_menu(char tasks[][MAX_STRING_LENGTH], int* size){
         remove_task(tasks, size, selected_index);
         main_menu(tasks,size);
     }
+
+    save_tasks(tasks,size);
 }
 
 void remove_task(char tasks[][MAX_STRING_LENGTH], int* size, int index){
@@ -111,4 +139,28 @@ void remove_task(char tasks[][MAX_STRING_LENGTH], int* size, int index){
     }
     //Decrement size due to removed element
     (*size)--;
+}
+
+void save_tasks(char tasks[][MAX_STRING_LENGTH], int* size){
+    //This function is called in main_menu
+
+    //Open file
+    //The fopen() function opens the file whose name is the string pointed to by pathname and associates a stream with it.
+    FILE* file = fopen("tasks.txt", "w");
+    
+    //Check if file is open
+    if(file ==NULL){
+        printf("ERROR: Can't open file for writing!\n");
+        return;
+    }
+
+    //Write tasks to file
+    for(int i = 0; i < *size; i++){
+        fprintf(file, "%s", tasks[i]);
+    }
+
+    //Close the file
+    //The fclose() function flushes the stream pointed to by stream 
+    //(writing any buffered output data using fflush(3)) and closes the underlying file descriptor.
+    fclose(file);
 }
